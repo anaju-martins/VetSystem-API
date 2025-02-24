@@ -1,4 +1,4 @@
-package anaju_martins.VetSystem._API.domain.appointment;
+package anaju_martins.VetSystem_API.domain.appointment;
 
 public enum AppointmentStatus {
 
