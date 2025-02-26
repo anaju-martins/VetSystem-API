@@ -59,7 +59,8 @@ public class ClientService {
                 client.getId(),
                 client.getName(),
                 client.getEmail(),
-                client.getPhone()
+                client.getPhone(),
+                client.getPets()
         );
     }
 

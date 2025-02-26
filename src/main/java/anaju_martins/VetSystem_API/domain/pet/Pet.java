@@ -34,6 +34,15 @@ public class Pet {
 
     public Pet() {}
 
+    public Pet(String name, String species, String breed, String gender, int age, Client client){
+        this.name = name;
+        this.species = species;
+        this.breed = breed;
+        this.gender = gender;
+        this.age = age;
+        this.client = client;
+    }
+
     public Long getId() {
         return id;
     }

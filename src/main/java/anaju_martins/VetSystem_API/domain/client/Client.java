@@ -2,6 +2,7 @@ package anaju_martins.VetSystem_API.domain.client;
 
 import anaju_martins.VetSystem_API.domain.appointment.Appointment;
 import anaju_martins.VetSystem_API.domain.pet.Pet;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.*;
@@ -19,6 +20,7 @@ public class Client {
     private String email;
     private String phone;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Pet> pets = new ArrayList<>();
 
@@ -32,6 +34,7 @@ public class Client {
         this.cpf = data.cpf();
         this.email = data.email();
         this.phone = data.phone();
+
     }
 
     public Long getId() {
