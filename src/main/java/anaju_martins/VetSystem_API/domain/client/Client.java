@@ -14,6 +14,8 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(unique = true)
+    private String cpf;
     private String email;
     private String phone;
 
@@ -24,6 +26,13 @@ public class Client {
     private Set<Appointment> appointments = new HashSet<>();
 
     public Client() {}
+
+    public Client(ClientRequestDTO data){
+        this.name = data.name();
+        this.cpf = data.cpf();
+        this.email = data.email();
+        this.phone = data.phone();
+    }
 
     public Long getId() {
         return id;
@@ -39,6 +48,14 @@ public class Client {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getEmail() {
