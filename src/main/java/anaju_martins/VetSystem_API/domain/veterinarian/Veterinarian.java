@@ -16,7 +16,7 @@ public class Veterinarian {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
+    private String name;
     private String crmvet;
     private String specialty;
 
@@ -26,6 +26,12 @@ public class Veterinarian {
 
     public Veterinarian() {}
 
+    public Veterinarian(String name, String crmvet, String specialty) {
+        this.name = name;
+        this.crmvet = crmvet;
+        this.specialty = specialty;
+    }
+
     public Long getId() {
         return id;
     }
@@ -34,12 +40,12 @@ public class Veterinarian {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String nome) {
+        this.name = name;
     }
 
     public String getCrmvet() {

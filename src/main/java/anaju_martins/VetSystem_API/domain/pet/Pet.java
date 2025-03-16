@@ -3,6 +3,7 @@ package anaju_martins.VetSystem_API.domain.pet;
 import anaju_martins.VetSystem_API.domain.appointment.Appointment;
 import anaju_martins.VetSystem_API.domain.client.Client;
 import anaju_martins.VetSystem_API.domain.medical.MedicalRecord;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -24,6 +25,7 @@ public class Pet {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
+    @JsonIgnore
     private Client client;
 
     @OneToOne(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.EAGER)

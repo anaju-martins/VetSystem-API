@@ -36,4 +36,10 @@ public class PetController {
         List<PetResponseDTO> pets = petService.getAllPets();
         return new ResponseEntity<>(pets, HttpStatus.OK);
     }
+
+    @DeleteMapping
+    public ResponseEntity<PetResponseDTO> deletePetById(@PathVariable Long id) {
+        petService.deletePet(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
