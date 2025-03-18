@@ -3,6 +3,8 @@ package anaju_martins.VetSystem_API.domain.appointment;
 import anaju_martins.VetSystem_API.domain.pet.Pet;
 import anaju_martins.VetSystem_API.domain.client.Client;
 import anaju_martins.VetSystem_API.domain.veterinarian.Veterinarian;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -20,14 +22,17 @@ public class Appointment {
 
     @ManyToOne
     @JoinColumn(name = "client_id")
+    @JsonIgnoreProperties({"pets"})
     private Client client;
 
     @ManyToOne
     @JoinColumn(name = "pet_id")
+    @JsonIgnore
     private Pet pet;
 
     @ManyToOne
     @JoinColumn(name = "vet_id")
+    @JsonIgnore
     private Veterinarian vet;
 
 
