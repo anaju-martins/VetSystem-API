@@ -1,6 +1,7 @@
 package anaju_martins.VetSystem_API.domain.medical;
 
 import anaju_martins.VetSystem_API.domain.pet.Pet;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class MedicalRecord {
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "pet_id")
+    @JsonIgnore
     private Pet pet;
 
     @OneToMany(mappedBy = "medicalRecord", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

@@ -1,6 +1,7 @@
 package anaju_martins.VetSystem_API.domain.medical;
 
 import anaju_martins.VetSystem_API.domain.veterinarian.Veterinarian;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -18,10 +19,12 @@ public class MedicalHistory {
     private String treatment;
 
     @ManyToOne
-    @JoinColumn(name = "medicalRec_id")
+    @JoinColumn(name = "medicalRec_id", nullable = false)
+    @JsonIgnore
     private MedicalRecord medicalRecord;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "vet_id", nullable = false)
     private Veterinarian vet;
 
     public MedicalHistory(){}

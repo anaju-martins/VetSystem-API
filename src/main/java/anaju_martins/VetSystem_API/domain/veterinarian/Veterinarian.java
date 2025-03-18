@@ -1,13 +1,12 @@
 package anaju_martins.VetSystem_API.domain.veterinarian;
 
 import anaju_martins.VetSystem_API.domain.appointment.Appointment;
+import anaju_martins.VetSystem_API.domain.medical.MedicalHistory;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "veterinarian")
@@ -23,6 +22,10 @@ public class Veterinarian {
     @OneToMany(mappedBy = "vet", fetch = FetchType.LAZY)
     @JsonIgnore
     private Set<Appointment> appointments = new HashSet<>();
+
+    @OneToMany(mappedBy = "vet", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<MedicalHistory> medicalHistory = new ArrayList<>();
 
     public Veterinarian() {}
 
